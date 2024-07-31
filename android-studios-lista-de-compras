@@ -1,0 +1,201 @@
+
+package com.example.lista;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+public class MainActivity extends AppCompatActivity {
+CheckBox chkArroz, chkCarne, chkFeijao, chkLeite;
+EditText txtTotal;
+Button btnComprar;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+chkArroz = findViewById(R.id.chkArroz);
+chkFeijao = findViewById(R.id.chkFeijao);
+chkLeite = findViewById(R.id.chkLeite);
+chkCarne = findViewById(R.id.chkCarne);
+btnComprar = findViewById(R.id.btnComprar);
+txtTotal = findViewById(R.id.txtTotal);
+btnComprar.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+double Total=0;
+if(chkArroz.isChecked())
+Total = Total+35.00;
+if(chkLeite.isChecked())
+Total = Total+4.80;
+if(chkCarne.isChecked())
+Total = Total+40.00;
+if(chkFeijao.isChecked())
+Total = Total+10.00;
+txtTotal.setText(String.valueOf(Total));
+}
+});
+}
+}
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+
+android:orientation="vertical">
+<TextView
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="18dp"
+android:text="Escolha O Seu Produto"
+android:id="@+id/TextView"/>
+<CheckBox
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Arroz (R$ 35,00)"
+android:id="@+id/chkArroz"/>
+<CheckBox
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Leite (R$ 4,80)"
+android:id="@+id/chkLeite"/>
+<CheckBox
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Carne (R$ 40)"
+android:id="@+id/chkCarne"/>
+<CheckBox
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Feijão (R$ 10)"
+android:id="@+id/chkFeijao"/>
+<Button
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="COMPRAR"
+android:id="@+id/btnComprar"/>
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textSize="20dp"
+android:text="TOTAL:"
+android:id="@+id/TextView2"/>
+<EditText
+android:layout_width="354dp"
+android:layout_height="wrap_content"
+android:id="@+id/txtTotal"
+android:textSize="25dp"/>
+</LinearLayout>
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+lista de mercado(acima)
+calculo imc (abaixo)
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+tools:ignore="MissingConstraints">
+<TextView
+android:id="@+id/textView2"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Peso"
+/>
+<TextView
+android:id="@+id/textView3"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Altura"
+/>
+<TextView
+android:id="@+id/textView4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="IMC"
+/>
+<Button
+android:layout_width="match_parent"
+android:layout_height="wrap_content"/>
+<EditText
+android:id="@+id/editTextTextMultiLine"
+android:layout_width="match_parent"
+android:layout_height="wrap_content" />
+<EditText
+android:id="@+id/editTextTextMultiLine2"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:ems="10"
+/>
+<EditText
+android:id="@+id/editTextTextMultiLine3"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:ems="10"
+android:gravity="start|top"
+android:inputType="textMultiLine"
+/>
+<EditText
+android:id="@+id/editTextTextMultiLine4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:ems="10"
+android:gravity="start|top"
+/>
+<TextView
+android:id="@+id/textView6"
+android:layout_width="match_parent"
+
+android:layout_height="wrap_content"
+android:text="Status"
+/>
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+package com.example.imc;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+public class MainActivity extends AppCompatActivity {
+Button btnCalcular;
+EditText TextMultiLine2,TextMultiLine3,TextMultiLine4,editTextTextMultiline;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+chkeditTextTextMultiline = findViewById(R.id.editTextTextMultiline);
+chkTextMultiLine3 = findViewById(R.id.TextMultiLine3);
+chkTextMultiLine4 = findViewById(R.id.TextMultiLine4);
+chkTextMultiLine = findViewById(R.id.TextMultiLine);
+chkButton= findViewById(R.id.Calcular);
